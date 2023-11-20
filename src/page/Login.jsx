@@ -13,7 +13,7 @@ function Login() {
   }, [])
   
   function submitForm() {
-    axios.post("http://localhost:8000/api/login", { username, password }, ).then(res => {
+    axios.post("https://sc-hyouka.com/api/login", { username, password }, ).then(res => {
       if(res.data.token) {
         login(res.data.token)
         navigate("/")
