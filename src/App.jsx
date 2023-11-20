@@ -14,7 +14,7 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         
-        <Route path="*" element={<NotFound />} />
+{/*         <Route path="*" element={<NotFound />} /> */}
         <Route path="/" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Device</h1></Navbar></PrivateRoute>} />
         <Route path="/database" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Database</h1></Navbar></PrivateRoute>} />
         <Route path="/autoreply" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Auto Reply</h1></Navbar></PrivateRoute>} />
