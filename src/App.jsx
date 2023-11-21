@@ -19,7 +19,7 @@ function App() {
         <Route path="/database" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Database</h1></Navbar></PrivateRoute>} />
         <Route path="/autoreply" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Auto Reply</h1></Navbar></PrivateRoute>} />
         <Route path="/scheduled" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Scheduled</h1></Navbar></PrivateRoute>} />
-        <Route path="/blast" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Blast</h1></Navbar></PrivateRoute>} />
+        <Route path="/blast" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Blast</h1><p>Upload File (Number, Message, Status)</p></Navbar></PrivateRoute>} />
         <Route path="/send-manual" element={<PrivateRoute><Navbar><SendManual /></Navbar></PrivateRoute>} />
         <Route path="/configuration" element={<PrivateRoute><Navbar><h1 className="text-2xl font-bold text-slate-700">Configuration</h1></Navbar></PrivateRoute>} />
       </Routes>

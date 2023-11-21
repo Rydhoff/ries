@@ -1,16 +1,22 @@
 import axios from "axios"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { getToken } from "../config/AuthService"
 
 function SendManual() {
     const [number, setNumber] = useState("")
     const [message, setMessage] = useState("")
-    const [isMedia, setIsMedia] = useState(false)
     const [media, setMedia] = useState("")
+    const [sended, setSended] = useState(false)
+
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         setSended(false)
+    //     }, 3000)
+    // }, [sended])
 
     function sendData(e) {
         e.preventDefault()
-        if(isMedia) {
+        if(media) {
             const formData = new FormData()
             formData.append("file", media)
             formData.append("number", number)
@@ -19,17 +25,18 @@ function SendManual() {
                 "Content-Type": 'multipart/form-data',
                 "Authorization": 'Bearer ' + getToken()
             }})
-            .then(res => console.log(res)).catch(err => console.log(err))
+            .then(res => setSended(true)).catch(err => console.log(err))
         } else { axios.post("https://sc-hyouka.com/api/send-message", { number, message }, { headers: {
             "Authorization": 'Bearer ' + getToken()
-        }}) }
-        setNumber("")
+        }}).then((res) => setSended(true)) }
         setMessage("")
+        setNumber("")
     }
 
   return (<>
     <h1 className="text-2xl font-bold text-slate-700">Send Manual</h1>
-    <main className="mt-10">
+    <main className="mt-10 relative">
+    {/* { sended ? <div className="absolute right-0 top-[-19px]"><p className="text-center text-green-800 w-fit bg-green-200 px-5 py-2 rounded">Message sended</p></div> : "" } */}
         <form className="flex flex-col space-y-4" onSubmit={(e) => sendData(e)}>
             <div>
                 <label htmlFor="number" className="font-semibold text-slate-600">Number</label>
@@ -40,7 +47,7 @@ function SendManual() {
                 <textarea value={message} onChange={(e) => setMessage(e.target.value)} rows={3} type="text" id="message" placeholder="Message" className="mt-2 ring-1 ring-slate-400 rounded focus:outline-slate-800 px-2 py-1 w-full" />
             </div>
             <div className="flex justify-center w-full flex-col">
-                <label className="font-semibold text-slate-600"><input type="checkbox" onChange={() => setIsMedia(prev => !prev)} /> Media?</label>
+                <label className="font-semibold text-slate-600">Media</label>
                 <label htmlFor="dropzone-file" className="mt-2 flex flex-col items-center justify-center w-full h-28 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 hover:bg-gray-100">
                     <div className="flex flex-col items-center justify-center pt-5 pb-6">
                         <svg className="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
@@ -49,12 +56,14 @@ function SendManual() {
             {
                 media ? <p>{media.name}</p> :
                 <>
-                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click upload media</span> or drag & drop</p>
+                <p className="mb-2 text-sm text-gray-500 dark:text-gray-400 font-semibold">Click to upload media</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">png, jpg, jpeg & pdf (Optional)</p>
                 </>
             }
             </div>
-            <input onChange={(e) => setMedia(e.target.files[0])}  id="dropzone-file" type="file" className="hidden" />
+            <input onChange={(e) => {
+                setMedia(e.target.files[0])
+            }} id="dropzone-file" type="file" className="hidden" />
             </label>
             </div> 
             <button type="submit" className="rounded bg-cyan-950 text-white font-semibold py-2">Send Message</button>
