@@ -13,13 +13,14 @@ function Navbar({ children }) {
 
   return (
     <div className="flex">
-        <nav className="bg-white shadow-xl w-56 max-sm:hidden h-screen py-6 px-4 flex flex-col rounded-br-3xl rounded-tr-3xl justify-between">
+        <nav className="bg-white shadow-xl w-62 max-sm:hidden h-screen py-6 px-4 flex flex-col rounded-br-3xl rounded-tr-3xl justify-between">
             <div>
-                <header className="border-b-2 h-40 rounded px-3 py-4">
-                    <img className="h-[60%] outline rounded-full outline-slate-400 p-2 w-auto m-auto" src={ries} alt="ries" />
-                    <div className="py-4">
+                <header className="border-b-2 h-fit rounded px-3 py-4 flex align-center">
+                    <img className="h-16 p-1 w-auto mt-auto mb-auto mr-3" src={ries} alt="ries" />
+                    <div className="py-2 mt-auto mb-auto">
                         <h1 className="text-sm text-slate-600 font-bold">RIES</h1>
-                        <h1 className="text-sm text-slate-600 font-semibold">Status : <span className="text-green-400">Connected</span></h1>
+                        <h1 className="text-xs text-slate-600 font-bold">Status : <span className="text-xs text-green-400 font-bold">Connected</span></h1>
+                        
                     </div>
                 </header>
                 <div>
