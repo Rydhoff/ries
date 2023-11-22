@@ -15,13 +15,13 @@ function Navbar({ children }) {
     <div className="flex">
         <nav className="bg-white shadow-xl w-56 max-sm:hidden h-screen py-6 px-4 flex flex-col rounded-br-3xl rounded-tr-3xl justify-between">
             <header className="h-40 rounded px-3 py-4">
-                <img className="h-[70%] outline rounded-full outline-slate-400 p-2 w-auto m-auto" src={ries} alt="ries" />
+                <img className="h-[60%] outline rounded-full outline-slate-400 p-2 w-auto m-auto" src={ries} alt="ries" />
                 <div className="py-4">
                     <h1 className="text-sm text-slate-600 font-bold">RIES</h1>
                     <h1 className="text-sm text-slate-600 font-semibold">Status : <span className="text-green-400">Connected</span></h1>
                 </div>
             </header>
-            <div className="pb-16 border-t-2">
+            <div className="border-t-2">
                 <div className="flex flex-col space-y-1">
                     <label className="px-2 font-bold text-slate-300 text-xs mt-2 mb-1">Dashboard</label>
                     <NavLink to="/" className="font-semibold text-slate-500 aria-[current=page]:text-slate-600 text-sm py-2 px-2 aria-[current=page]:bg-slate-100 rounded">Device</NavLink>
