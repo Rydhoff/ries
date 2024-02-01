@@ -19,7 +19,7 @@ function Navbar({ children }) {
                     <img className="h-16 p-1 w-auto mt-auto mb-auto mr-3" src={ries} alt="ries" />
                     <div className="py-2 mt-auto mb-auto">
                         <h1 className="text-sm text-slate-600 font-bold">RIES</h1>
-                        <h1 className="text-xs text-slate-600 font-bold">Status : <span className="text-xs text-green-400 font-bold">Connected</span></h1>
+                        <h1 className="text-xs text-slate-600 font-bold">by Ridho</h1>
                         
                     </div>
                 </header>
